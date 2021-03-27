@@ -112,7 +112,7 @@ Ok, you have installed Superalgos. To run the App, jump to the section Usage bel
 **1.** To run the Superalgos client, go to the Superalgos directory/folder and run this command: 
 
 ```
-sudo node run
+node run
 ```
 If you are running a headless Raspberry Pi (one without a screen) it is recommended to use the following instead.
 ```
@@ -120,7 +120,7 @@ cd Superalgos
 ```
 then
 ```
-sudo node run minMemo noBrowser
+node run minMemo noBrowser
 ```
 
 
