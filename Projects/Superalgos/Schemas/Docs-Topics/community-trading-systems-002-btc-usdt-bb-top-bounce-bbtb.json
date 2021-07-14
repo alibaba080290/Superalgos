@@ -1,7 +1,7 @@
 {
     "topic": "Community Trading Systems",
     "pageNumber": "2",
-    "type": "BTC-USDT - BB Top Bounce (BBTB)",
+    "type": "BTC-USDT - BB Top Bounce - BBTB",
     "definition": {
         "text": "A trading system based on the bounce off the upper Bollinger Band idea, designed to accumulate Bitcoin, targeting a big range of market situations.",
         "updated": 1611678251886
@@ -11,6 +11,10 @@
             "style": "Text",
             "text": "BB Top Bounce was released in May 2020. This page explains the trading system and analyzes its performance.",
             "updated": 1611678265942
+        },
+        {
+            "style": "Important",
+            "text": "Since the release of this strategy, the structure of the BTC-USDT market changed dramatically, rendering this Trading System unusable. The issue is that the system implements rigid volatility filters. The current environment shows much higher volatility than in the past, preventing the strategies from trading. At this point, you may use this system as a demo only, backtesting ranges before 2021. If you wish to experiment and revise this system, you may try removing the volatility filters and implementing new ones, if desired."
         },
         {
             "style": "Text",
@@ -159,7 +163,8 @@
         },
         {
             "style": "Text",
-            "text": "Masters Data Mine:"
+            "text": "Candles Data Mine:",
+            "updated": 1622559136531
         },
         {
             "style": "List",
@@ -168,6 +173,10 @@
         {
             "style": "List",
             "text": "Candles & Volumes"
+        },
+        {
+            "style": "Text",
+            "text": "Bollinger Data Mine:"
         },
         {
             "style": "List",

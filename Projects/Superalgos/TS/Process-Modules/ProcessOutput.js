@@ -31,6 +31,9 @@
                         botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
                     }
                     if (botNode === undefined) { 
+                        botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'API Data Fetcher Bot')
+                    }
+                    if (botNode === undefined) { 
                         botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')
                     }
 
@@ -87,7 +90,7 @@
                     let product = outputDataset.referenceParent.parentNode.config.codeName
                     let dataset = outputDataset.referenceParent.config.codeName
 
-                    let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                    let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                     let event = {
                         lastFile: lastFile,
                         timeFrames: timeFrames
@@ -120,6 +123,9 @@
                 }
                 if (botNode === undefined) { 
                     botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
+                }
+                if (botNode === undefined) { 
+                    botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'API Data Fetcher Bot')
                 }
                 if (botNode === undefined) { 
                     botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')
@@ -170,7 +176,7 @@
                 let product = outputDataset.referenceParent.parentNode.config.codeName
                 let dataset = outputDataset.referenceParent.config.codeName
 
-                let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                let key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                 let event = {
                     lastFile: lastFile,
                     timeFrames: timeFrames

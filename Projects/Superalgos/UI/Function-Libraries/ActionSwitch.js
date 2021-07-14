@@ -663,14 +663,29 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTradingEngines(action.node, action.rootNodes)
                 }
                 break
-            case 'Add Missing Plugin Super Scripts':
+            case 'Add Missing Plugin Learning Mines':
                 {
-                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingSuperScripts(action.node, action.rootNodes)
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingLearningMines(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin Learning Systems':
+                {
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingLearningSystems(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin Learning Engines':
+                {
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingLearningEngines(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Plugin Tutorials':
                 {
                     UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTutorials(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin API Maps':
+                {
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingApiMaps(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Workspace Projects':
@@ -700,6 +715,21 @@ function newSuperalgosActionSwitch() {
                 {
                     action.node.type = "Backtesting Session"
                     UI.projects.superalgos.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+                }
+                break
+            case 'Send Telegram Test Message':
+                {
+                    UI.projects.superalgos.functionLibraries.socialBotsFunctions.sendTelegramTestMessage(action.node, action.callBackFunction)
+                }
+                break
+            case 'Send Discord Test Message':
+                {
+                    UI.projects.superalgos.functionLibraries.socialBotsFunctions.sendDiscordTestMessage(action.node, action.callBackFunction)
+                }
+                break
+            case 'Send Slack Test Message':
+                {
+                    UI.projects.superalgos.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
                 }
                 break
         }

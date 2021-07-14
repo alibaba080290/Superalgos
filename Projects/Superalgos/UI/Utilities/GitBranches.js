@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesGitBranches() {
-    thisObject = {
+    let thisObject = {
         getBranchLabel: getBranchLabel
     }
 
@@ -16,8 +16,12 @@ function newSuperalgosUtilitiesGitBranches() {
                 branchLabel = 'Develop'
                 break
             }
-            case 'bug-fixes': {
-                branchLabel = 'Bug Fixes'
+            case 'plugins-docs': {
+                branchLabel = 'Plugins-Docs'
+                break
+            }
+            case 'next-version': {
+                branchLabel = 'Next-Version'
                 break
             }
         }

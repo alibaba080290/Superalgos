@@ -169,14 +169,15 @@ function newLayer() {
                 'Data Mines Data->Trading Mines Data->Learning Mines Data->Data Storage->Network Node->' +
                 'Data Storage->Network Node->' +
                 'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
-                'Learning Session->' +
+                'Back Learning Session->Live Learning Session->' +
                 'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
+                'Learning System Reference->Learning Engine Reference->Learning System->Learning Engine->' +
                 'Market->Market Base Asset->Asset->' +
                 'Market Quoted Asset->Asset->' +
                 'Exchange Markets->Crypto Exchange->' +
                 'Product Definition->' +
                 'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
-                'Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->' +
+                'Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Learning Bot->' +
                 'Data Mine->Trading Mine->Learning Mine->' +
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Record Formula->' +
@@ -225,6 +226,9 @@ function newLayer() {
             }
 
             thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Sensor Bot', undefined, false, true, true, true)
+            if (thisObject.bot === undefined) {
+                thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'API Data Fetcher Bot', undefined, false, true, true, true)
+            }
             if (thisObject.bot === undefined) {
                 thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Indicator Bot', undefined, false, true, true, true)
             }

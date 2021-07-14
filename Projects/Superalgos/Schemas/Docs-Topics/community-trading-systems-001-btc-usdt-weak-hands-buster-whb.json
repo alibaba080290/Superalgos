@@ -1,7 +1,7 @@
 {
     "topic": "Community Trading Systems",
     "pageNumber": "1",
-    "type": "BTC-USDT - Weak-hands Buster (WHB)",
+    "type": "BTC-USDT - Weak-hands Buster - WHB",
     "definition": {
         "text": "A trading system based on the break down of the Bollinger Bands idea, designed to accumulate Bitcoin, targeting major downward market moves.",
         "updated": 1611675437927
@@ -11,6 +11,11 @@
             "style": "Text",
             "text": "Weak-hands Buster was released in the Superalgos Community Telegram group in August 2019 and has been trading live since. An evolution of the system is currently available as version 2. This page explains the trading system and analyzes its performance.",
             "updated": 1611675468833
+        },
+        {
+            "style": "Important",
+            "text": "Since the release of this strategy, the structure of the BTC-USDT market changed dramatically, rendering this Trading System unusable. The issue is that the system implements rigid volatility filters. The current environment shows much higher volatility than in the past, preventing the strategies from trading. At this point, you may use this system as a demo only, backtesting ranges before 2021. If you wish to experiment and revise this system, you may try removing the volatility filters and implementing new ones, if desired.",
+            "updated": 1622379090325
         },
         {
             "style": "Text",
@@ -170,7 +175,8 @@
         },
         {
             "style": "Text",
-            "text": "Masters Data Mine:"
+            "text": "Candles Data Mine:",
+            "updated": 1622559175746
         },
         {
             "style": "List",
@@ -179,6 +185,10 @@
         {
             "style": "List",
             "text": "Candles & Volumes"
+        },
+        {
+            "style": "Text",
+            "text": "Bollinger Data Mine:"
         },
         {
             "style": "List",

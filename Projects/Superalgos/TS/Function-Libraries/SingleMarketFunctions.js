@@ -99,7 +99,7 @@
                 botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Bot')
             }
             if (botNode === undefined) {
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = ");
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. ");
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -120,7 +120,7 @@
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         return
                     } else {
-                        if (tradingMineNode.config.codeName === undefined) {
+                        if (learningMineNode.config.codeName === undefined) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Learning Mine witn no codeName defined.");
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                             return
@@ -297,7 +297,8 @@
         resultsWithIrregularPeriods,
         interExecutionMemory,
         processingDailyFiles,
-        currentDay
+        currentDay,
+        parametersDefinition
     ) {
 
         /* 
@@ -334,19 +335,64 @@
                 let dataDependencyMap = new Map()
                 for (let j = 0; j < dataDependecyArray.length; j++) {
                     let record = dataDependecyArray[j]
-                    let key = record.begin.toString() + '-' + record.end.toString()
-                    dataDependencyMap.set(key, record)
+                    let key
+                    if (record.begin !== undefined && record.end !== undefined) {
+                        key = record.begin.toString() + '-' + record.end.toString()
+                        dataDependencyMap.set(key, record)
+                    } else {
+                        /*
+                        Datasets with objects that do not have a begin and end can not be part of the map.
+                        */
+                    }
                 }
                 dataDependencies[dataDependencyName] = dataDependencyMap
             }
         }
-
+        /*
+        This function allows users to locate an object at a dataset based on the begins and end properties 
+        of another object provided to the function as a parameter. For example, users can localte the 
+        bollinger band object that has the same begin and end than a candle object.
+        */
         function getElement(dependencyName, currentRecordPrimaryDataDependency) {
             let key = currentRecordPrimaryDataDependency.begin.toString() + '-' + currentRecordPrimaryDataDependency.end.toString()
             return dataDependencies[dependencyName].get(key)
         }
+        /*
+        This function allows users to locate an object at a dataset whose objects does not have a begin and end
+        property but instead, they have a timestamp property. It receives an arbitrary begin / end object and
+        the function will search within the dependency dataset for the first record whose timestamp is whitin 
+        the begin and end of the received reference objet. For example, a user can get the News record that belong
+        to a certain Candle object.
+        */
+        function getTimestampElement(dependencyName, currentRecordPrimaryDataDependency) {
+            let dependencyArray = products[dependencyName]
+            for (let i = 0; i < dependencyArray.length; i++) {
+                let record = dependencyArray[i]
+                if (record.timestamp >= currentRecordPrimaryDataDependency.begin && record.timestamp <= currentRecordPrimaryDataDependency.end) {
+                    return record
+                }
+            }
+        }
 
-        /* This is Initialization Code */
+        /*
+        Indicators might have parameters that influences it's calculations. These parameters
+        are defined at the Product Definition config, and their values are set at the Process Instance config.
+        Parameters are extracted at the Procedure Initialization Code. In order to facilitate this extraction
+        we will create an object here that will be accesed from the Procedure Initialization with all parameters
+        and their defined values.
+        */
+        let parameters = {}
+        if (parametersDefinition !== undefined) {
+            for (let i = 0; i < parametersDefinition.length; i++) {
+                let parameterName = parametersDefinition[i]
+                let parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config[parameterName]
+                if (parameterValue !== undefined) {
+                    parameters[parameterName] = parameterValue
+                }
+            }
+        }
+
+        /* Here we run the Procedure Initialization Code */
         if (dataBuildingProcedure.initialization !== undefined) {
             if (dataBuildingProcedure.initialization.procedureJavascriptCode !== undefined) {
                 try {
@@ -374,7 +420,7 @@
             }
         }
 
-        /* This is Initialization Code */
+        /* Here we run the Prcedure Loop Code */
         if (dataBuildingProcedure.loop !== undefined) {
             if (dataBuildingProcedure.loop.procedureJavascriptCode !== undefined) {
                 let lastRecord
@@ -520,7 +566,7 @@
                 dateForPath = "/" + currentDay.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(currentDay.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(currentDay.getUTCDate(), 2);
             }
 
-            let filePathRoot = 'Project/' + contextSummary.project + "/" + contextSummary.mineType + "/" + contextSummary.dataMine + "/" + contextSummary.bot + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+            let filePathRoot = 'Project/' + contextSummary.project + "/" + contextSummary.mineType + "/" + contextSummary.dataMine + "/" + contextSummary.bot + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
             let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timeFrameLabel + dateForPath;
             filePath += '/' + fileName
 
@@ -649,7 +695,7 @@
             "/" +
             TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName +
             '/' +
-            TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name +
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName +
             "/" +
             TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
             "-" +

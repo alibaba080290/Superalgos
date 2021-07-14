@@ -100,6 +100,7 @@ function newSuperalgosFloatingSpace() {
             }
         },
         physics: true,
+        detachUsingMouse: false
     }
 
     return thisObject
@@ -254,11 +255,15 @@ function newSuperalgosFloatingSpace() {
         /* Exceptions that are never considered far. */
         if (
             payload.node.type === 'Trading System' ||
+            payload.node.type === 'Learning System' ||
+            payload.node.type === 'Trading Engine' ||
+            payload.node.type === 'Learning Engine' ||
             payload.node.type === 'Network' ||
             payload.node.type === 'Crypto Ecosystem' ||
             payload.node.type === 'Charting Space' ||
             payload.node.type === 'Data Mine' ||
-            payload.node.type === 'Super Scripts'
+            payload.node.type === 'Trading Mine' ||
+            payload.node.type === 'Learning Mine'
         ) {
             return false
         }
@@ -439,7 +444,7 @@ function newSuperalgosFloatingSpace() {
     function syncStylePhysics() {
         if (UI.projects.superalgos.spaces.designSpace === undefined) { return }
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
-        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Design Space')
+        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Design Space')
         if (designSpaceNode === undefined) { return }
         if (designSpaceNode.spaceStyle === undefined) { return }
         let configStyle
@@ -491,7 +496,7 @@ function newSuperalgosFloatingSpace() {
     function syncSettingsPhysics() {
         if (UI.projects.superalgos.spaces.designSpace === undefined) { return }
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
-        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Design Space')
+        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Design Space')
         if (designSpaceNode === undefined) { return }
         if (designSpaceNode.spaceSettings === undefined) { return }
         let configSettings
@@ -531,6 +536,9 @@ function newSuperalgosFloatingSpace() {
 
         if (configSettings.physics !== undefined) {
             thisObject.settings.physics = configSettings.physics
+        }
+        if (configSettings.detachUsingMouse !== undefined) {
+            thisObject.settings.detachUsingMouse = configSettings.detachUsingMouse
         }
     }
 
