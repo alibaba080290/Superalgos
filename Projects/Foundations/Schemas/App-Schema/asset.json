@@ -1,0 +1,160 @@
+{
+    "type": "Asset",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 4,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type_the_code_name_of_the_asset\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Exchange Assets->"
+    },
+    "propertyNameAtParent": "assets",
+    "alternativeIcons": [
+        {
+            "codeName": "ADA",
+            "iconName": "cardano"
+        },
+        {
+            "codeName": "BCH",
+            "iconName": "bitcoin-cash"
+        },
+        {
+            "codeName": "BNB",
+            "iconName": "binance-coin"
+        },
+        {
+            "codeName": "BTC",
+            "iconName": "bitcoin"
+        },
+        {
+            "codeName": "BUSD",
+            "iconName": "binance-usd"
+        },
+        {
+            "codeName": "CAKE",
+            "iconName": "cake"
+        },
+        {
+            "codeName": "DAI",
+            "iconName": "dai"
+        },
+        {
+            "codeName": "DASH",
+            "iconName": "dash"
+        },
+        {
+            "codeName": "DOGE",
+            "iconName": "dogecoin"
+        },
+        {
+            "codeName": "DOT",
+            "iconName": "polkadot"
+         },
+        {
+            "codeName": "EOS",
+            "iconName": "eos"
+        },
+        {
+            "codeName": "ETC",
+            "iconName": "ethereum-classic"
+        },
+        {
+            "codeName": "ETH",
+            "iconName": "ethereum"
+        },
+        {
+            "codeName": "EUR",
+            "iconName": "euro"
+        },
+        {
+            "codeName": "LINK",
+            "iconName": "chainlink"
+        },
+        {
+            "codeName": "LTC",
+            "iconName": "litecoin"
+        },
+        {
+            "codeName": "NANO",
+            "iconName": "nano"
+        },
+        {
+            "codeName": "NEO",
+            "iconName": "neo"
+        },
+        {
+            "codeName": "QTUM",
+            "iconName": "qtum"
+        },
+        {
+            "codeName": "SOL",
+            "iconName": "solana"
+        },
+        {
+            "codeName": "SXP",
+            "iconName": "swipe"
+        },
+        {
+            "codeName": "TRX",
+            "iconName": "tron"
+        },
+        {
+            "codeName": "XMR",
+            "iconName": "monero"
+        },
+        {
+            "codeName": "UNI",
+            "iconName": "uniswap"
+        },
+        {
+            "codeName": "USD",
+            "iconName": "us-dollar"
+        },
+        {
+            "codeName": "USDC",
+            "iconName": "usdc"
+        },
+        {
+            "codeName": "USDT",
+            "iconName": "tether"
+        },
+        {
+            "codeName": "VET",
+            "iconName": "vechain"
+        },
+        {
+            "codeName": "XLM",
+            "iconName": "stellar"
+        },
+        {
+            "codeName": "XRP",
+            "iconName": "xrp"
+        },
+        {
+            "codeName": "ZAR",
+            "iconName": "zar"
+        }
+    ]
+}
