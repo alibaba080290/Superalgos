@@ -12,6 +12,16 @@
                 "language": "RU",
                 "text": "Узел Crypto Exchanges группирует определения различных бирж, с которыми может взаимодействовать пользователь.",
                 "updated": 1638648933625
+            },
+            {
+                "language": "TR",
+                "text": "Kripto borsaları, kullanıcının etkileşime girebileceği farklı borsaların tanımları düğüm gruplarıdır.",
+                "updated": 1652799502893
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Kryptobörsen gruppiert die Definitionen der verschiedenen Börsen, mit denen der Benutzer interagieren kann.",
+                "updated": 1708265568255
             }
         ]
     },
@@ -30,6 +40,17 @@
                     "language": "RU",
                     "text": "В рабочем пространстве по умолчанию есть несколько узлов этого типа, каждый из которых предназначен для:",
                     "updated": 1638648949414
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayılan çalışma alanı, her birinin bir amacı olan bu türden birkaç düğüm içerir:",
+                    "updated": 1652799511254
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Standardarbeitsbereich enthält mehrere Knoten dieser Art, die jeweils einen bestimmten Zweck erfüllen:",
+                    "updated": 1708265568426,
+                    "style": "Text"
                 }
             ]
         },
@@ -47,6 +68,17 @@
                     "language": "RU",
                     "text": "Tested:  особенности узлов Crypto Exchange, которые были тщательно протестированы.",
                     "updated": 1638649035681
+                },
+                {
+                    "language": "TR",
+                    "text": "Test edildi: Kapsamlı bir şekilde test edilmiş Crypto Exchange borsa düğümlerini içerir.",
+                    "updated": 1652799539143
+                },
+                {
+                    "language": "DE",
+                    "text": "Getestet: bietet Crypto Exchange Nodes von Börsen, die gründlich getestet wurden.",
+                    "updated": 1708265568598,
+                    "style": "List"
                 }
             ]
         },
@@ -64,6 +96,17 @@
                     "language": "RU",
                     "text": "Untested: содержит набор узлов Crypto Exchange непроверенных бирж, которые соответствуют набору требований API библиотеки CCXT, необходимых Superalgos для работы.",
                     "updated": 1638649058992
+                },
+                {
+                    "language": "TR",
+                    "text": "Test Edilmemiş: Superalgos'un çalışması gereken CCXT kitaplığının API gereksinimlerine uyan, test edilmemiş borsalardan oluşan bir Crypto Exchange düğümleri koleksiyonuna sahiptir.",
+                    "updated": 1652799559376
+                },
+                {
+                    "language": "DE",
+                    "text": "Ungetestet: enthält eine Sammlung von Krypto-Börsenknoten von ungetesteten Börsen, die die API-Anforderungen der CCXT-Bibliothek erfüllen, die Superalgos zum Funktionieren benötigt.",
+                    "updated": 1708265568755,
+                    "style": "List"
                 }
             ]
         },
@@ -81,6 +124,17 @@
                     "language": "RU",
                     "text": "Testing Queue: вы можете использовать этот узел для развертывания узлов Crypto Exchange во время их тестирования.",
                     "updated": 1638649074711
+                },
+                {
+                    "language": "TR",
+                    "text": "Test Sırası: Test ederken Crypto Exchange düğümlerini dağıtmak için bu düğümü kullanabilirsiniz.",
+                    "updated": 1652799568889
+                },
+                {
+                    "language": "DE",
+                    "text": "Testing Queue: Sie können diesen Knoten verwenden, um Crypto Exchange-Knoten zu testen.",
+                    "updated": 1708265568974,
+                    "style": "List"
                 }
             ]
         },

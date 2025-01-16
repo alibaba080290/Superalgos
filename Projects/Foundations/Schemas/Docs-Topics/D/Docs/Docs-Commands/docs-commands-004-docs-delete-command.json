@@ -15,6 +15,16 @@
                 "language": "RU",
                 "text": "Используйте эту команду, чтобы удалить страницу из документов Docs.",
                 "updated": 1638528236486
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar'dan bir sayfa silmek için bu komutu kullanın.",
+                "updated": 1652129293577
+            },
+            {
+                "language": "PT",
+                "text": "Utilize este comando para apagar páginas nos Docs.",
+                "updated": 1711315543540
             }
         ]
     },
@@ -28,6 +38,16 @@
                     "language": "RU",
                     "text": "Одностраничный синтаксис",
                     "updated": 1638528262362
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek Sayfa Sözdizimi",
+                    "updated": 1652129311347
+                },
+                {
+                    "language": "PT",
+                    "text": "Sintaxe de Página Única",
+                    "updated": 1711315562370
                 }
             ]
         },
@@ -50,6 +70,16 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1638528284766
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652129321313
+                },
+                {
+                    "language": "PT",
+                    "text": "Exemplos",
+                    "updated": 1711315570841
                 }
             ]
         },
@@ -77,6 +107,16 @@
                     "language": "RU",
                     "text": "Синтаксис коллекции страниц",
                     "updated": 1638528305804
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa Koleksiyonu Sözdizimi",
+                    "updated": 1652129332315
+                },
+                {
+                    "language": "PT",
+                    "text": "Sintaxe de Conjunto de Páginas",
+                    "updated": 1711315597479
                 }
             ]
         },
@@ -99,6 +139,16 @@
                     "language": "RU",
                     "text": "Примеры",
                     "updated": 1638528317029
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652129342215
+                },
+                {
+                    "language": "PT",
+                    "text": "Exemplos",
+                    "updated": 1711315606851
                 }
             ]
         },
@@ -130,6 +180,16 @@
                     "language": "RU",
                     "text": "Параметры",
                     "updated": 1638528330539
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1652129361241
+                },
+                {
+                    "language": "PT",
+                    "text": "Parâmetros ",
+                    "updated": 1711315652744
                 }
             ]
         },
@@ -141,12 +201,22 @@
                 {
                     "language": "DE",
                     "text": "Project: Es ist das Projekt, in dem die Seite definiert ist.",
-                    "updated": 1633894025155
+                    "updated": 1681405992990
                 },
                 {
                     "language": "RU",
                     "text": "Project: Это проект, в котором определена страница.",
                     "updated": 1638528344689
+                },
+                {
+                    "language": "TR",
+                    "text": "Project: Sayfanın tanımlandığı projedir.",
+                    "updated": 1652129414503
+                },
+                {
+                    "language": "PT",
+                    "text": "Projeto (Project): É o projeto onde a página está definida.",
+                    "updated": 1711315927149
                 }
             ]
         },
@@ -164,6 +234,16 @@
                     "language": "RU",
                     "text": "Docs Page Category: Одна из доступных категорий.",
                     "updated": 1638528356480
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Category: Mevcut kategorilerden biri.",
+                    "updated": 1652129437381
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria de Página nos Docs (Docs Page Category): Uma das categorias disponíveis.",
+                    "updated": 1711316192278
                 }
             ]
         },
@@ -181,6 +261,16 @@
                     "language": "RU",
                     "text": "Docs Page Name: Название страницы",
                     "updated": 1638528375725
+                },
+                {
+                    "language": "TR",
+                    "text": "Docs Page Name: Sayfanın adı.",
+                    "updated": 1652129453489
+                },
+                {
+                    "language": "PT",
+                    "text": "Nome da Página nos Docs (Docs Page Name): O nome da página.",
+                    "updated": 1711316180144
                 }
             ]
         }

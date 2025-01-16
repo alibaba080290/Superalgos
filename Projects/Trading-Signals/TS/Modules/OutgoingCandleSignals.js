@@ -1,4 +1,4 @@
-exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) {
+exports.newTradingSignalsModulesOutgoingCandleSignals = function () {
 
     let thisObject = {
         broadcastSignal: broadcastSignal,
@@ -8,24 +8,21 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
     }
 
     let socialTradingBotsMap
-    let web3
     return thisObject
 
     function initialize() {
         socialTradingBotsMap = new Map()
-        web3 = new SA.nodeModules.web3()
     }
 
     function finalize() {
         socialTradingBotsMap = undefined
-        web3 = undefined
     }
 
     function broadcastSignal(tradingSignalMessage, socialTradingBot) {
 
         let candleSignals = socialTradingBotsMap.get(socialTradingBot.id)
-        if (candleSignals === undefined) { 
-            candleSignals = [] 
+        if (candleSignals === undefined) {
+            candleSignals = []
             socialTradingBotsMap.set(socialTradingBot.id, candleSignals)
         }
         /*
@@ -40,47 +37,35 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
             candleSignals.push(tradingSignalMessage)
         } else {
             candleSignals.push(tradingSignalMessage)
-            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persit(candleSignals, socialTradingBot)
+            SA.logger.debug('Outgoing Candle Signal -> persisting data to open storage')
+            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persistSignal(candleSignals, socialTradingBot)
             socialTradingBotsMap.delete(socialTradingBot.id)
         }
     }
-
+    
     async function broadcastFileKey(fileKey, socialTradingBot) {
-
-        let userApp = TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
-        if (userApp === undefined) { return }
-        if (userApp.node.config === undefined) { return }
-        let userAppCodeName = userApp.node.config.codeName
-        if (userAppCodeName === undefined) { return }
-        let userAppCategory = userApp.node.parentNode
-        if (userAppCategory === undefined) { return }
-
+        
         if (socialTradingBot === undefined) { return }
         if (socialTradingBot.config === undefined) { return }
-        let socialTradingBotCodeName = socialTradingBot.config.codeName
         if (socialTradingBot.signingAccount === undefined) { return }
-
-        let signal = {
-            fileKey: fileKey,
-            broadcaster: {
-                userApp: {
-                    categoryType: userAppCategory.type,
-                    appType: userApp.node.type,
-                    appId: userApp.node.id
-                },
-                socialTradingBot: {
-                    id: socialTradingBot.id
-                }
-            },
-            signatures: {
-                userApp: {},
-                socialTradingBot: {}
-            }
+        
+        let signalMessage = {
+            signalId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(), 
+            originSocialTradingBotId: socialTradingBot.id,
+            fileKey: fileKey
         }
-
-        signal.signatures.userApp = await web3.eth.accounts.sign(JSON.stringify(signal.fileKey), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
-        signal.signatures.socialTradingBot = await web3.eth.accounts.sign(JSON.stringify(signal.fileKey), SA.secrets.signingAccountSecrets.map.get(socialTradingBotCodeName).privateKey)
-
-        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signal)
+        
+        let messageHeader = {
+            requestType: 'Signal',
+            networkService: 'Trading Signals',
+            signalMessage: JSON.stringify(signalMessage)
+        }
+        
+        SA.logger.debug('Outgoing Candle Signal -> sending signal message to P2P network')
+        let response = await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.tradingSignalsNetworkServiceClient.sendMessage(messageHeader)
+        SA.logger.debug('Outgoing Candle Signal -> signal response result = ' + response.result)
+        if (response.result !== 'Ok') {
+            SA.logger.error('broadcastFileKey -> Failed to send a Signal to the P2P Network -> response.message = ' + response.message)
+        }
     }
 }

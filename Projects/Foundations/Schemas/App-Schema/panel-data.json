@@ -23,6 +23,11 @@
             "type": "node",
             "childType": "Text Style",
             "autoAdd": true
+        },
+        {
+            "name": "panelDataJavascriptCode",
+            "type": "node",
+            "childType": "Panel Data Javascript Code"
         }
     ],
     "menuItems": [
@@ -30,6 +35,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -39,6 +45,7 @@
             "propertyToCheckFor": "dataFormula",
             "actionFunction": "payload.executeAction",
             "label": "Add Data Formula",
+            "translationKey": "add.data.formula",
             "relatedUiObject": "Data Formula",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -49,7 +56,19 @@
             "propertyToCheckFor": "textStyle",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Style",
+            "translationKey": "add.textStyle",
             "relatedUiObject": "Text Style",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": false,
+            "propertyToCheckFor": "panelDataJavascriptCode",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Javascript Code",
+            "translationKey": "add.javascriptCode",
+            "relatedUiObject": "Panel Data Javascript Code",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
@@ -59,7 +78,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

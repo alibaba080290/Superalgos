@@ -7,6 +7,16 @@
                 "language": "RU",
                 "text": "В свечной структуре узлов хранятся свойства, составляющие каждую свечу в эпизоде, включая дату и время открытия и закрытия, а также ставки для открытия, минимума, максимума и закрытия.",
                 "updated": 1638646229268
+            },
+            {
+                "language": "TR",
+                "text": "Düğümlerin mum yapısı, açılış-kapanış,tarih-saati,açılış, min, maks ve kapanış oranları dahil olmak üzere bölümdeki her bir mumu oluşturan özellikleri saklar.",
+                "updated": 1652797441416
+            },
+            {
+                "language": "DE",
+                "text": "Die Kerzenstruktur der Knoten speichert die Eigenschaften, die jede Kerze in der Episode ausmachen, einschließlich des Eröffnungs- und Abschlussdatums sowie der Kurse für Eröffnung, Minimum, Maximum und Abschluss.",
+                "updated": 1708265556127
             }
         ]
     },
@@ -23,6 +33,17 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                     "updated": 1638646239827
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle.",
+                    "updated": 1652797453908
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern.",
+                    "updated": 1708265556346,
+                    "style": "Text"
                 }
             ]
         }

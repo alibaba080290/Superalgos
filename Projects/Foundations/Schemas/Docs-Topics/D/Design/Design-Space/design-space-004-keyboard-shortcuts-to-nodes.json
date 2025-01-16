@@ -20,6 +20,16 @@
                 "language": "DE",
                 "text": "Die Definition von \nShortcuts (Tastenkombinationen) zu bestimmten Nodes kann nützlich sein, wenn man regelmäßig mit der besagten Node interagiert.",
                 "updated": 1640559600123
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Belirli düğümlere kısayollar tanımlamak, söz konusu düğümle düzenli olarak etkileşim kurarken faydalı olabilir.",
+                "updated": 1645976623485
+            },
+            {
+                "language": "PT",
+                "text": "Definir atalhos para Nós (Node's) específicos pode ser útil ao interagir com o referido Nó (Node) regularmente. ",
+                "updated": 1711655652164
             }
         ]
     },
@@ -48,6 +58,16 @@
                     "language": "DE",
                     "text": "Es ist auch möglich, einen benutzerdefinierten Shortcut zu einer beliebigen Node zu setzen, die Sie wünschen. Dies ist nützlich für den Zugriff auf häufig verwendete Nodes.",
                     "updated": 1640559696109
+                },
+                {
+                    "language": "TR",
+                    "text": "İstediğiniz herhangi bir düğüme özel bir kısayol ayarlamak da mümkündür. Bu, sık kullanılan düğümlere erişmek için kullanışlıdır.",
+                    "updated": 1645976959474
+                },
+                {
+                    "language": "PT",
+                    "text": "Também é possível definir um atalho personalizado para qualquer Nó (Node) se assim o desejar. Isto poderá ser útil para aceder a Nós (Node's) que use com mais frequência.",
+                    "updated": 1711550969212
                 }
             ]
         },
@@ -70,6 +90,16 @@
                     "language": "DE",
                     "text": "Sie können diese Art von shortcuts nach folgendem Verfahren definieren:",
                     "updated": 1640559716356
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki yordamı kullanarak bu tür kısayolu tanımlayabilirsiniz:",
+                    "updated": 1645977002053
+                },
+                {
+                    "language": "PT",
+                    "text": "Pode definir este tipo de atalho com o seguinte procedimento:",
+                    "updated": 1711551026716
                 }
             ]
         },
@@ -91,6 +121,16 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über die Ziel-Node, bis sich das Menü öffnet. Dadurch wird die Node in den Fokus gesetzt.",
                     "updated": 1640559754763
+                },
+                {
+                    "language": "TR",
+                    "text": "Menü açılana kadar fare işaretçisini hedef düğümün üzerine getirin. Bu, düğümü odak haline getirir.",
+                    "updated": 1645977017581
+                },
+                {
+                    "language": "PT",
+                    "text": "Passe o ponteiro do rato por cima do Nó (Node) de destino até que o menu seja aberto. Isso coloca o Nó (Node) em foco.",
+                    "updated": 1711551093952
                 }
             ]
         },
@@ -108,6 +148,16 @@
                     "language": "EL",
                     "text": "Κάντε κλικ στο Ctrl ή στο Cmd + Alt + το κλειδί που προτιμάτε για να εκχωρήσετε τη συντόμευση.",
                     "updated": 1639396602714
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısayolu atamak için Ctrl veya Cmd + Alt + tercih ettiğiniz tuşu tıklayın.",
+                    "updated": 1645977027729
+                },
+                {
+                    "language": "PT",
+                    "text": "Carreguem em Ctrl ou Cmd + Alt + e selecione a tecla da sua preferência.",
+                    "updated": 1711551134358
                 }
             ]
         },
@@ -129,6 +179,16 @@
                     "language": "DE",
                     "text": "Unter der Node erscheint ein Zeichen, das die Zuweisung des Shortcuts bestätigt.",
                     "updated": 1640559837145
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün altında kısayolun atandığını onaylayan bir işaret görünecektir.",
+                    "updated": 1645977038239
+                },
+                {
+                    "language": "PT",
+                    "text": "Um sinal aparecerá debaixo do Nó (Node) que confirma a atribuição do atalho.",
+                    "updated": 1711551204561
                 }
             ]
         },
@@ -155,6 +215,16 @@
                     "language": "DE",
                     "text": "Wiederholen Sie den gleichen Vorgang, um einen Shortcut zu entfernen.",
                     "updated": 1640559856548
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kısayolu kaldırmak için aynı işlemi tekrarlayın.",
+                    "updated": 1645977079650
+                },
+                {
+                    "language": "PT",
+                    "text": "Repita o mesmo procedimento para remover o atalho.",
+                    "updated": 1711551251591
                 }
             ]
         },
@@ -177,6 +247,16 @@
                     "language": "DE",
                     "text": "Wenn Sie versuchen, einen Shortcut mit einem bereits verwendeten Shortcut zuzuweisen, meldet das System das Problem. Wenn Sie darauf bestehen, indem Sie dieselbe Tastenkombination zwei weitere Male drücken, weist das System das Kürzel wie erwartet zu.",
                     "updated": 1640559908645
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Halihazırda kullanımda olan bir klavye kombinasyonuyla bir kısayol atamaya çalışırken, sistem sorunu bildirir. Aynı klavye kombinasyonuna iki kez daha basarak ısrar ederseniz, sistem kısayolu beklendiği gibi atayacaktır.",
+                    "updated": 1645977109633
+                },
+                {
+                    "language": "PT",
+                    "text": "Ao tentar atribuir um atalho com uma combinação de teclas que já está em uso, o sistema irá notificará-lo. Se insistir, pressionando a mesma combinação de teclas mais duas vezes, o sistema atribuirá o atalho conforme esperado.",
+                    "updated": 1711556385892
                 }
             ]
         }

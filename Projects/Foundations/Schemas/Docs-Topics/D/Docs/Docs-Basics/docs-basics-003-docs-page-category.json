@@ -3,8 +3,8 @@
     "pageNumber": 3,
     "type": "Docs Page Category",
     "definition": {
-        "text": "The Docs feature six categories of pages: Node, Concept, Topic, Tutorial, Review, and Book. Each category is represented by a tab in the Docs Search Results.",
-        "updated": 1616876130108,
+        "text": "The Docs feature seven categories of pages: Node, Concept, Topic, Tutorial, Review,Book and Workspace. Each category is represented by a tab in the Docs Search Results.",
+        "updated": 1642711625422,
         "translations": [
             {
                 "language": "ID",
@@ -20,19 +20,24 @@
             },
             {
                 "language": "DE",
-                "text": "Die Docs enthalten sechs Kategorien von Seiten: Node,Concept,Topic,Tutorial,Review und Book. Jede Kategorie wird durch eine Registerkarte in den Docs-Suchergebnissen dargestellt.",
-                "updated": 1633806275183,
+                "text": "Die Docs enthalten sechs Kategorien von Seiten: Node, Concept, Topic, Tutorial, Review, Book und Workspace. Jede Kategorie wird durch eine Registerkarte in den Docs-Suchergebnissen dargestellt.",
+                "updated": 1642718416492,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Документы содержат шесть категорий страниц: Node, Concept, Topic, Tutorial, Review, and Book. Каждая категория представлена ​​вкладкой в ​​результатах поиска документов.",
-                "updated": 1638458497233
+                "text": "В Docs представлены семь категорий страниц: Node, Concept, Topic, Tutorial, Review, Book и Workspace. Каждая категория представлена вкладкой в результатах поиска документов.",
+                "updated": 1647781161686
             },
             {
                 "language": "TR",
-                "text": "Dokümanlar altı sayfa kategorisinde toplanmıştır: Düğüm ( Node ), Kavram ( Concept ), Konu ( Topic ), Eğitim ( Tutorial ), İnceleme ( Review ) ve Kitap ( Book ). Her kategori, Dokümanlar Arama Sonuçlarında bir sekme ile gösterilir.",
-                "updated": 1640610203305
+                "text": "Dokümanlar yedi sayfa kategorisinde toplanmıştır: Düğüm ( Node ), Kavram ( Concept ), Konu ( Topic ), Eğitim ( Tutorial ), İnceleme ( Review ), Kitap ( Book ) ve Çalışma Alanı (Workspace). Her kategori, Dokümanlar Arama Sonuçlarında bir sekme ile gösterilir.",
+                "updated": 1646206476988
+            },
+            {
+                "language": "PT",
+                "text": "Os Documentos possuem sete categorias de páginas: Nó (Node) , Conceito, Tópico, Tutorial, Revisão, Livro e Área de Trabalho (Workspace). Cada categoria é representada por uma aba nos Resultados da Pesquisa dos Documentos (Docs Search Results).",
+                "updated": 1712250242831
             }
         ]
     },
@@ -62,6 +67,16 @@
                     "language": "RU",
                     "text": "Категория Node",
                     "updated": 1638458808149
+                },
+                {
+                    "language": "TR",
+                    "text": "Node Sayfa Kategorisi",
+                    "updated": 1646206605663
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria da Página do Nó",
+                    "updated": 1712250283187
                 }
             ]
         },
@@ -85,6 +100,16 @@
                     "language": "RU",
                     "text": "Каждый узел Node, определенный в контексте проекта Project, имеет страницу Docs Node Page, объясняющую, что это за узел и как он используется. Это страница, которая открывается при нажатии кнопки справки в меню узла.",
                     "updated": 1638458755616
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Proje (Project) bağlamında tanımlanan her Düğüm (Node), Düğümün ne olduğunu ve nasıl kullanıldığını açıklayan bir Dokümanlar Düğüm Sayfası (Node Page) içerir. Bu, düğüm menüsündeki yardım düğmesine tıklandığında açılan sayfadır.",
+                    "updated": 1646206596115
+                },
+                {
+                    "language": "PT",
+                    "text": "Cada Nó (Node) definido no contexto de um Projeto (Project) possui uma Página de Nó dos Documentos (Docs Node Page) que explica o que é o Nó (Node) e como ele é usado. Esta é a página que é aberta ao clicar no botão de ajuda no menu do Nó (Node).",
+                    "updated": 1712250431822
                 }
             ]
         },
@@ -108,6 +133,16 @@
                     "language": "RU",
                     "text": "Категория Concept",
                     "updated": 1638458826439
+                },
+                {
+                    "language": "TR",
+                    "text": "Concept Sayfa Kategorisi",
+                    "updated": 1646206621244
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria de Página de Conceito",
+                    "updated": 1712250463589
                 }
             ]
         },
@@ -131,6 +166,16 @@
                     "language": "RU",
                     "text": "Концепции - это понятия или идеи, которые не представлены в виде узлов в иерархии. Страницы в категории Concept охватывают понятия или идеи, которые могут быть объяснены на одной странице. То есть концепции - это понятия, которые могут быть исчерпывающе рассмотрены на одной странице.",
                     "updated": 1638458973238
+                },
+                {
+                    "language": "TR",
+                    "text": "Concept, bir hiyerarşide düğümler olarak temsil edilmeyen kavramlar veya fikirlerdir. Concept kategorisindeki sayfalar, tek bir sayfada açıklanabilecek kavram veya fikirlerdir. Yani kavramlar, tek bir sayfada ayrıntılı olarak ele alınabilecek kavramlardır.",
+                    "updated": 1646206698209
+                },
+                {
+                    "language": "PT",
+                    "text": "Os conceitos são noções ou ideias que não são representadas como Nós (Node's) numa hierarquia. As páginas na categoria de conceitos abordam noções ou ideias que podem ser explicadas numa única página. Ou seja, conceitos são noções que podem ser abordadas exaustivamente numa única página.",
+                    "updated": 1712250514905
                 }
             ]
         },
@@ -154,6 +199,16 @@
                     "language": "RU",
                     "text": "Категория Topic",
                     "updated": 1638459020247
+                },
+                {
+                    "language": "TR",
+                    "text": "Topic Sayfa Kategorisi",
+                    "updated": 1646206712587
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria da Página do Tópico",
+                    "updated": 1712250552387
                 }
             ]
         },
@@ -177,6 +232,16 @@
                     "language": "RU",
                     "text": "Темы - это многогранные, глубокие концепции, для правильного рассмотрения которых требуется более одной страницы. Темы представляют собой наборы тесно связанных понятий, расположенных в определенной последовательности. Однако это не страница сама по себе. Вместо этого это набор страниц.",
                     "updated": 1638459065579
+                },
+                {
+                    "language": "TR",
+                    "text": "Topics, doğru bir şekilde ele alınması için birden fazla sayfa gerektiren çok yönlü, derin kavramlardır. Bir sıra halinde düzenlenmiş, birbiriyle yakından ilişkili kavramlar kümesidir. Kendi başına bir sayfa değildir,bir sayfa koleksiyonudur.",
+                    "updated": 1646206838305
+                },
+                {
+                    "language": "PT",
+                    "text": "Os tópicos são conceitos multifacetados e profundos que exigem mais de uma página para serem abordados corretamente. Os tópicos são conjuntos de conceitos intimamente relacionados, organizados numa sequência. No entanto, um tópico não é uma página em si mesmo. Em vez disso, é uma coleção de páginas.",
+                    "updated": 1712250595405
                 }
             ]
         },
@@ -200,6 +265,16 @@
                     "language": "RU",
                     "text": "Категория Tutorial",
                     "updated": 1638459083962
+                },
+                {
+                    "language": "TR",
+                    "text": "Tutorial Sayfa Kategorisi",
+                    "updated": 1646206849201
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria da Página de um Tutorial",
+                    "updated": 1712250640085
                 }
             ]
         },
@@ -223,6 +298,16 @@
                     "language": "RU",
                     "text": "Иерархия Tutorial может упорядочивать узлы различных типов, включая узлы Tutorial Topic и Tutorial Step. Каждый узел в иерархии указывает на страницу Tutorial Step Page в документах, из которой он черпает информацию. В контексте документов, страницы в учебнике расположены в последовательности, как и темы.",
                     "updated": 1638459807647
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir  Öğretici hiyerarşisi (Tutorial Hierarchy), Öğretici Konusu (Tutorial Topic) ve Öğretici Adım düğümleri (Tutorial Step Node) dahil olmak üzere farklı düğüm türlerini düzenleyebilir. Hiyerarşideki her düğüm, bilgi aldığı Dokümanlar'daki bir Eğitim Adımı Sayfasına işaret eder. Dokümanlar bağlamında, bir öğreticideki sayfalar, tıpkı konularda olduğu gibi bir sırayla ilerler.",
+                    "updated": 1646207561365
+                },
+                {
+                    "language": "PT",
+                    "text": "Uma hierarquia de Tutorial pode organizar diferentes tipos de nós, incluindo nós de Tópico de Tutorial (Tutorial Topic) e nós de Tutorial Passo a Passo (Tutorial Step). Cada nó na hierarquia aponta para uma Página de Tutorial Passo a Passo (Tutorial Step) nos Documentos, da qual ele extrai informações. No contexto dos Documentos, as páginas em um tutorial são organizadas em uma sequência, assim como nos tópicos.",
+                    "updated": 1712250797684
                 }
             ]
         },
@@ -246,6 +331,16 @@
                     "language": "RU",
                     "text": "Категория Reviews",
                     "updated": 1638459908013
+                },
+                {
+                    "language": "TR",
+                    "text": "Reviews Sayfa Kategorisi",
+                    "updated": 1646207577294
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria de Página de Avaliações",
+                    "updated": 1712250874701
                 }
             ]
         },
@@ -269,6 +364,16 @@
                     "language": "RU",
                     "text": "Reviews - это создаваемый пользователями контент, в котором описывается их опыт работы с определенными компонентами Superalgos или других проектов.",
                     "updated": 1638459974909
+                },
+                {
+                    "language": "TR",
+                    "text": "Reviews , Superalgos'un belirli bileşenleri veya diğer projelerle ilgili deneyimlerini açıklayan, kullanıcı tarafından oluşturulan içeriktir.",
+                    "updated": 1646207607985
+                },
+                {
+                    "language": "PT",
+                    "text": "As avaliações (Reviews) são conteúdos gerados pelos utilizadores que descrevem a sua experiência com certos componentes do Superalgos ou de outros projetos.",
+                    "updated": 1712250928652
                 }
             ]
         },
@@ -292,6 +397,16 @@
                     "language": "RU",
                     "text": "Категория Books",
                     "updated": 1638460137112
+                },
+                {
+                    "language": "TR",
+                    "text": "Books Sayfa Kategorisi",
+                    "updated": 1646207619336
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria da Página de Livros",
+                    "updated": 1712251049208
                 }
             ]
         },
@@ -315,6 +430,16 @@
                     "language": "RU",
                     "text": "Books - это страница сама по себе. На странице представлен список тем, каждая из которых составляет главу книги.",
                     "updated": 1638460105684
+                },
+                {
+                    "language": "TR",
+                    "text": "Kitap başlı başına bir sayfadır. Sayfa, her biri kitapta bir bölüm oluşturan konuların bir listesini içerir.",
+                    "updated": 1646207641102
+                },
+                {
+                    "language": "PT",
+                    "text": "Um livro é uma página em si mesma. A página apresenta uma lista de tópicos, cada um constituindo um capítulo no livro.",
+                    "updated": 1712251111380
                 }
             ]
         },
@@ -327,6 +452,16 @@
                     "language": "RU",
                     "text": "Категория Workspace",
                     "updated": 1638460132388
+                },
+                {
+                    "language": "TR",
+                    "text": "Workspace Sayfa Kategorisi",
+                    "updated": 1646207657370
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria da Página da Área de Trabalho (Workspace) ",
+                    "updated": 1712251301076
                 }
             ]
         },
@@ -339,6 +474,16 @@
                     "language": "RU",
                     "text": "На вкладке Workspace фактически отображается не страница документов, а содержимое рабочих пространств. Это возможность поиска в рабочем пространстве по ключевому слову. Он показывает все узлы, связанные с ключевым словом. Сделайте запрос в строке поиска с ключевым словом, которое вам нужен (например, \"market\"), и посмотрите на категорию рабочего пространства.",
                     "updated": 1638460490413
+                },
+                {
+                    "language": "TR",
+                    "text": "Workspace sekmesi aslında bir dokümanlar sayfası değildir, çalışma alanlarından içerik görüntüler. Anahtar kelime ile çalışma alanlarında arama yapma imkanı verir. Anahtar kelimeyle ilgili tüm düğümleri gösterir. Arama çubuğunda bir anahtar kelimeyle (ör. \"market\") bir sorgu yapın ve Çalışma Alanı Kategorisine bakın.",
+                    "updated": 1646207756219
+                },
+                {
+                    "language": "PT",
+                    "text": "O separador \"Área de Trabalho (Workspace)” na verdade não exibe uma página de documentos, mas sim conteúdo das Áreas de Trabalho (Workspace). É uma possibilidade de pesquisar nas áreas de trabalho com uma palavra-chave. Ele mostra todos os Nós (Node's) que estão relacionados com a palavra-chave. Faça uma busca na barra de pesquisa com uma palavra-chave que deseja (por exemplo, \"mercado\") e dê uma olhada na Categoria da Área de Trabalho (Workspace).",
+                    "updated": 1712251259017
                 }
             ]
         },

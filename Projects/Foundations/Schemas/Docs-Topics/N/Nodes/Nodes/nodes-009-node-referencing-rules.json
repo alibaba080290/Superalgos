@@ -15,6 +15,21 @@
                 "language": "RU",
                 "text": "Каждый тип узла может иметь набор правил, определяющих, с каким типом узла он может установить ссылку.",
                 "updated": 1640356616144
+            },
+            {
+                "language": "TR",
+                "text": "Her Düğüm Türü ( Node Type ) hangi Düğüm Türüyle ( Node Type ) başvuru oluşturabileceğini tanımlayan bir kurallar kümesine sahip olabilir.",
+                "updated": 1652901804081
+            },
+            {
+                "language": "DE",
+                "text": "Jeder Knotentyp (Node Type) kann über eine Reihe von Regeln verfügen, die festlegen, mit welchem Knotentyp er einen Bezug herstellen kann.",
+                "updated": 1689421600448
+            },
+            {
+                "language": "PT",
+                "text": "Cada tipo de Nó (Node Type) pode ter um conjunto de regras que define com qual tipo de Nó (Node Type) pode estabelecer uma referência.",
+                "updated": 1711484607783
             }
         ]
     },
@@ -27,6 +42,21 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1640356624548
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652901839913
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1689421611035
+                },
+                {
+                    "language": "PT",
+                    "text": "Para entrar no modo de edição e alterar este texto, clique com o botão direito do rato e selecione \"Editar\". Pressione ENTER para escrever novos parágrafos e ESC para sair do modo de edição.",
+                    "updated": 1711484627998
                 }
             ]
         }

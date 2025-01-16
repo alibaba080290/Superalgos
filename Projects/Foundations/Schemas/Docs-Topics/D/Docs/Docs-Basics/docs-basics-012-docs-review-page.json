@@ -15,6 +15,16 @@
                 "language": "RU",
                 "text": "Обзоры - это создаваемый пользователями контент, в котором описывается их опыт работы с определенными компонентами Superalgos или других проектов.",
                 "updated": 1638464808245
+            },
+            {
+                "language": "TR",
+                "text": "incelemeler ( Reviews ) Superalgos'un belirli bileşenleri veya diğer projelerle ilgili deneyimlerini açıklayan, kullanıcı tarafından oluşturulan içeriktir.",
+                "updated": 1652646331000
+            },
+            {
+                "language": "PT",
+                "text": "As avaliações (Reviews) são conteúdos gerados pelos utilizadores que compartilham suas experiências com determinados componentes do Superalgos e ou outros projetos.",
+                "updated": 1712248371005
             }
         ]
     },
@@ -33,6 +43,11 @@
                     "language": "RU",
                     "text": "Страница обзора является самодостаточной.",
                     "updated": 1638464832321
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir inceleme sayfası bağımsızdır.",
+                    "updated": 1652646355199
                 }
             ]
         }

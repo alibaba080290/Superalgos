@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Dies sind die letzten Abschlüsse im Testzeitraum, und alle drei sind eindeutig fehlgeschlagen.",
                 "updated": 1639418894073
+            },
+            {
+                "language": "TR",
+                "text": "Bunlar test edilen dönemdeki son birkaç işlem ve bunların üçü de açık bir şekilde başarısızdır oldu.",
+                "updated": 1641806047606
+            },
+            {
+                "language": "RU",
+                "text": "Это последние несколько сделок за тестируемый период, и все три - явные провалы.",
+                "updated": 1642945456430
+            },
+            {
+                "language": "ES",
+                "text": "Estas son las últimas operaciones del periodo analizado, y las tres son claros fracasos.",
+                "updated": 1681734320886
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Zeit, den Kontext im 24-Stunden-Zeitrahmen zu überprüfen!",
                     "updated": 1639418902033
+                },
+                {
+                    "language": "TR",
+                    "text": "24 saatlik zaman çerçevesinde içeriği kontrol etme zamanı!",
+                    "updated": 1641806131863
+                },
+                {
+                    "language": "RU",
+                    "text": "Пора проверить контекст на таймфрейме 24H!",
+                    "updated": 1642945472323
+                },
+                {
+                    "language": "ES",
+                    "text": "Es hora de comprobar el contexto en el plazo de 24 horas.",
+                    "updated": 1681734334830
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Für mich sieht es unklar aus, ob der Kontext für einen Swing-Short geeignet ist oder nicht!",
                     "updated": 1639418908604
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bana göre, bağlamın kısa bir salıncak için uygun olup olmadığı belirsiz görünüyor!",
+                    "updated": 1641806407569
+                },
+                {
+                    "language": "RU",
+                    "text": "На мой взгляд, неясно, подходит ли контекст для Swing Short или нет!",
+                    "updated": 1642945498858
+                },
+                {
+                    "language": "ES",
+                    "text": "A mí me parece que no está claro si el contexto es adecuado para un swing short o no.",
+                    "updated": 1681734380262
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Was soll man von diesem ersten Test halten? Vergleichen wir die Ergebnisse mit den Vorhersagen der Hypothese.",
                     "updated": 1639418914932
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Peki, bu ilk testten ne anlamalıyız? Sonuçları varsayım tahminleriyle karşılaştıralım.",
+                    "updated": 1641806453926
+                },
+                {
+                    "language": "RU",
+                    "text": "Итак, что мы можем сделать из этого первого теста? Давайте сравним результаты с прогнозами гипотезы.",
+                    "updated": 1642945520687
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Qué conclusión sacamos de esta primera prueba? Comparemos los resultados con las predicciones de la hipótesis.",
+                    "updated": 1681734397796
                 }
             ]
         }

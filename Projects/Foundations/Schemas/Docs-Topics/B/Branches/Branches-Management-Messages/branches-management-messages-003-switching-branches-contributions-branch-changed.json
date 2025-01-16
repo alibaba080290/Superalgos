@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Ваша ветка Contributions Branch была успешно изменена. Это окажет влияние только в следующий раз, когда вы выполните команду App Contribute Command. Эта ветка получит Pull Request со всеми вашими изменениями.",
                 "updated": 1640236503933
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Katkılar Şubeniz başarıyla değiştirildi. Bunun yalnızca Uygulama Katkıda Bulun Komutunu ( App Contribute Command ) bir sonraki çalıştırışınızda bir etkisi olacaktır. Bu dal, tüm değişikliklerinizle birlikte Pull Request'i alacak.",
+                "updated": 1644420279225
+            },
+            {
+                "language": "DE",
+                "text": "Ihr Beitragszweig wurde erfolgreich geändert. Dies wird sich erst auswirken, wenn Sie das nächste Mal den Befehl App Contribute Command ausführen. Dieser Zweig wird den Pull Request mit allen Ihren Änderungen erhalten.",
+                "updated": 1680719661865
             }
         ]
     },
@@ -17,7 +27,19 @@
         {
             "style": "Note",
             "text": "There is no further action required.",
-            "updated": 1610543930216
+            "updated": 1610543930216,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Başka bir işlem gerekli değildir.",
+                    "updated": 1644420296603
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sind keine weiteren Maßnahmen erforderlich.",
+                    "updated": 1680719679053
+                }
+            ]
         }
     ]
 }

@@ -6,7 +6,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -21,7 +23,7 @@
         "compatibleTypes": "->Task->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Exchange Account Key->"
+        "compatibleTypes": "->Exchange Account Key->API Authorization Key->"
     },
     "propertyNameAtParent": "keyReference"
 }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Stages & Time",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "close-stage-event"
+            "name": "Close/close-stage-event",
+            "project": "Foundations"
         },
         "text": "Layers corresponding to stages, that is, Trigger Stage, Open Stage, Close Stage, and Manage Stage are markers of spans of time.",
         "translations": [
@@ -18,6 +18,21 @@
                 "language": "RU",
                 "text": "Слои, соответствующие этапам, а именно этапы Trigger Stage, Open Stage, Close Stage и Manage Stage, являются маркерами временных отрезков.",
                 "updated": 1640630043907
+            },
+            {
+                "language": "TR",
+                "text": "Aşamalara karşılık gelen katmanlar, yani Tetik Aşaması (Trigger Stage), Aşamayı Aç (Open Stage), Aşamayı Kapat (Close Stage) ve Aşamayı Yönet (Manage Stage), zaman aralığının belirteçleridir.",
+                "updated": 1642431712810
+            },
+            {
+                "language": "ID",
+                "text": "Layer yang sesuai dengan stages, yaitu Trigger Stage, Open Stage, Close Stage,, dan Manage Stage adalah penanda rentang waktu.",
+                "updated": 1673951107316
+            },
+            {
+                "language": "ES",
+                "text": "Las capas correspondientes a las etapas, es decir, Trigger Stage, Open Stage, Close Stage y Manage Stage son marcadores de lapsos de tiempo.",
+                "updated": 1675467447730
             }
         ]
     },
@@ -35,6 +50,21 @@
                     "language": "RU",
                     "text": "То есть, они сигнализируют о промежутке времени, в течение которого каждый этап был открыт.",
                     "updated": 1640630056254
+                },
+                {
+                    "language": "TR",
+                    "text": "Yani, her aşamanın açık olduğu zaman aralığını işaret ederler.",
+                    "updated": 1642431647004
+                },
+                {
+                    "language": "ID",
+                    "text": "Artinya, mereka menandakan rentang waktu di mana setiap stage terbuka.",
+                    "updated": 1673951115339
+                },
+                {
+                    "language": "ES",
+                    "text": "Es decir, señalan el lapso de tiempo en el que cada etapa estuvo abierta.",
+                    "updated": 1675467463206
                 }
             ]
         },
@@ -51,6 +81,21 @@
                     "language": "RU",
                     "text": "Экспериментируйте с ними! Найдите слои различных этапов и включите их!",
                     "updated": 1640630083716
+                },
+                {
+                    "language": "TR",
+                    "text": "Onları deneyin! Farklı aşamaların katmanlarını bulun ve açın!",
+                    "updated": 1642431659446
+                },
+                {
+                    "language": "ID",
+                    "text": "Cobalah itu semua! Temukan layer dari stage yang berbeda-beda dan nyalakan!",
+                    "updated": 1673951122011
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pruébalos! Busca las capas de las distintas etapas y actívalas.",
+                    "updated": 1675467475569
                 }
             ]
         },
@@ -67,6 +112,21 @@
                     "language": "RU",
                     "text": "Не стесняйтесь отключить несколько слоев, которые у вас сейчас включены, для ясности!",
                     "updated": 1640630105613
+                },
+                {
+                    "language": "TR",
+                    "text": "Netlik için şu anda sahip olduğunuz katmanlardan birkaçını kapatmaktan çekinmeyin!",
+                    "updated": 1642431672567
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan ragu untuk mematikan beberapa layer yang kamu miliki saat ini, untuk memperjelas!",
+                    "updated": 1673951128097
+                },
+                {
+                    "language": "ES",
+                    "text": "No dudes en desactivar algunas de las capas que tengas activadas en ese momento, ¡para mayor claridad!",
+                    "updated": 1675467487663
                 }
             ]
         }

@@ -28,6 +28,10 @@ function newWorkspace() {
         getNodeById: getNodeById,
         stopAllRunningTasks: stopAllRunningTasks,
         executeAction: executeAction,
+        buildSystemMenu: buildSystemMenu,
+        undoStack: undefined,
+        redoStack: undefined,
+        undoStackOnHold: undefined,
         physics: physics,
         draw: draw,
         spawn: spawn,
@@ -42,10 +46,15 @@ function newWorkspace() {
 
     thisObject.workspaceNode = {}
     thisObject.workspaceNode.rootNodes = []
+    thisObject.undoStack = []
+    thisObject.redoStack = []
+    // history elements for code and config edit are held here until actual changes are made:
+    thisObject.undoStackOnHold = []
 
     let savingWorkspaceIntervalId
     let workingAtTask = 0
     let loadedWorkspaceNode
+    let currentWorkspaceTitle
     let sessionTimestamp = (new Date()).valueOf()
     window.localStorage.setItem('Session Timestamp', sessionTimestamp)
 
@@ -75,7 +84,7 @@ function newWorkspace() {
                         let nodeActionSwitch = eval('new' + project.replaceAll('-', '') + 'NodeActionSwitch()')
                         nodeActionSwitchesByProject.set(project, nodeActionSwitch)
                     } catch (err) {
-                        console.log('[WARN] Action Switch for project ' + project + ' not found.')
+                        console.log((new Date()).toISOString(), '[WARN] Action Switch for project ' + project + ' not found.')
                     }
                 }
                 /* … and the system action switches map */
@@ -85,7 +94,7 @@ function newWorkspace() {
                         let systemActionSwitch = eval('new' + project.replaceAll('-', '') + 'SystemActionSwitch()')
                         systemActionSwitchesByProject.set(project, systemActionSwitch)
                     } catch (err) {
-                        console.log('[WARN] System Action Switch for project ' + project + ' not found.')
+                        console.log((new Date()).toISOString(), '[WARN] System Action Switch for project ' + project + ' not found.')
                     }
                 }
 
@@ -108,8 +117,10 @@ function newWorkspace() {
                         UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + queryString.initialWorkspaceName + "...")
                         if (queryString.initialWorkspaceType !== 'My-Workspaces') {
                             webCommand = 'LoadPlugin' + '/' + queryString.initialWorkspaceProject + '/' + 'Workspaces' + '/' + queryString.initialWorkspaceName + '.json'
+                            currentWorkspaceTitle = 'Native'
                         } else {
                             webCommand = 'LoadMyWorkspace' + '/' + queryString.initialWorkspaceName
+                            currentWorkspaceTitle = 'User'
                         }
                     } else {
                         /*
@@ -117,8 +128,8 @@ function newWorkspace() {
                         */
                         UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
                         webCommand = 'LoadMyWorkspace' + '/' + lastUsedWorkspace
+                        currentWorkspaceTitle = 'User'
                     }
-
                     httpRequest(undefined, webCommand, onFileReceived)
                     function onFileReceived(err, text, response) {
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -129,6 +140,7 @@ function newWorkspace() {
                             return
                         }
                         thisObject.workspaceNode = JSON.parse(text)
+                        currentWorkspaceTitle = currentWorkspaceTitle + '/' + thisObject.workspaceNode.name
                         thisObject.workspaceNode.project = 'Foundations'
                         recreateWorkspace()
                     }
@@ -158,14 +170,12 @@ function newWorkspace() {
                     UI.projects.foundations.utilities.statusBar.changeStatus("Displaying the UI...")
 
                     buildSystemMenu()
-
                     resolve()
                 }
             } catch (err) {
                 if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
             }
         })
-
         return promise
     }
 
@@ -200,61 +210,95 @@ function newWorkspace() {
         let html = '<nav><ul>'
         /* get all project head nodes present at the current workspace */
         let projectHeads = thisObject.getProjectsHeads()
+        const workspaceIndex = projectHeads.findIndex(ph => ph.type == 'Workspaces Project')
+        if(workspaceIndex > -1) {
+            projectHeads.splice(workspaceIndex, 1)
+        }
+        projectHeads.unshift({type: 'Workspaces Project'})
         for (let projectObject of projectHeads) {
             let projectPresentAtWorkspace = projectObject.type.replace(' Project', '')
             /* iterate through PROJECTS_MENU to pick the projects that are both present at the workspace and have a system menu defined */
-            for (let project of PROJECTS_MENU) {
-                if (project.name !== projectPresentAtWorkspace) { continue }
-                if (project.systemMenu === undefined || project.systemMenu.length === 0) { continue }
-                html = html + '<il><a>' + project.name + '</a><ul>'
-                /* call addMenuItem on the highest system menu hierarchy */
-                await addMenuItem(project.systemMenu)
-                html = html + '</ul></il>'
-                
-                async function addMenuItem(menu) {
-                    for (let item of menu) {
-                        /* We define the systemActionSwitch here to allow for a menu item to execute actions of another project.
-                        An action property looks like this: {"name": "…", "params": […], "systemActionProject": "…"},
-                        with only action.name being mandatory. */
-                        let systemActionSwitch
-                        if (item.action !== undefined && item.action.systemActionProject !== undefined) {
-                            systemActionSwitch = systemActionSwitchesByProject.get(item.action.systemActionProject)
+            const project = PROJECTS_MENU.find(p => p.name == projectPresentAtWorkspace)
+            if (project !== undefined && project.systemMenu !== undefined && project.systemMenu.length > 0) {
+                html += await createProjectMenuListItem(project)
+            }
+        }
+        const workspaceTitle = '<div id="workspace-title"></div>'
+        topMenu.innerHTML = html + '</ul></nav>' + workspaceTitle
+        setWorkspaceTitle()
+
+        async function createProjectMenuListItem(project) {
+            let html = '<li><a ' + addDataAttribute(project.translationKey) + '>' + project.name + '</a><ul>'
+            /* call addMenuItem on the highest system menu hierarchy */
+            await addMenuItem(project.systemMenu)
+            return html + '</ul></li>'
+            
+            async function addMenuItem(menu) {
+                if (menu.filter(x => x.order !== undefined).length > 0) {
+                    menu.sort((a,b) => a.order - b.order)
+                } 
+                else {
+                    /* 
+                     * This sorting will force list items with children to the top in alphabetical order
+                     * and all items without children will be ordered below
+                     */ 
+                    menu.sort((a,b) => {
+                        if (a.subMenu !== undefined && b.subMenu === undefined) {
+                            return -1
+                        }
+                        if (a.subMenu === undefined && b.subMenu !== undefined) {
+                            return 1
+                        }
+                        return a.label < b.label ? -1 : 1
+                    })
+                }
+                for (let item of menu) {
+                    /* We define the systemActionSwitch here to allow for a menu item to execute actions of another project.
+                    An action property looks like this: {"name": "…", "params": […], "systemActionProject": "…"},
+                    with only action.name being mandatory. */
+                    let systemActionSwitch
+                    if (item.action !== undefined && item.action.systemActionProject !== undefined) {
+                        systemActionSwitch = systemActionSwitchesByProject.get(item.action.systemActionProject)
+                    } else {
+                        systemActionSwitch = systemActionSwitchesByProject.get(project.name)
+                    }
+                    if (systemActionSwitch === undefined) {
+                        console.log((new Date()).toISOString(), '[ERROR] System Action Switch for project ' + project.name + ' could not be found.')
+                        continue
+                    }
+                    /* for a menu item that has an action: {"label": "…", "action": {…}} */
+                    if (item.action !== undefined && item.action.name !== undefined) {
+                        let action
+                        if (item.action.params === undefined) {
+                            action = systemActionSwitch.name + '().executeAction({name:\'' + item.action.name + '\'})'
                         } else {
-                            systemActionSwitch = systemActionSwitchesByProject.get(project.name)
+                            action = systemActionSwitch.name + '().executeAction({name:\'' + item.action.name + '\', params:['  + item.action.params + ']})'
                         }
-                        if (systemActionSwitch === undefined) {
-                            console.log('[ERROR] System Action Switch for project ' + project.name + ' could not be found.')
-                            continue
-                        }
-                        /* for a menu item that has an action: {"label": "…", "action": {…}} */
-                        if (item.action !== undefined && item.action.name !== undefined) {
-                            let action
-                            if (item.action.params === undefined) {
-                                action = systemActionSwitch.name + '().executeAction({name:\'' + item.action.name + '\'})'
-                            } else {
-                                action = systemActionSwitch.name + '().executeAction({name:\'' + item.action.name + '\', params:['  + item.action.params + ']})'
-                            }
-                            html = html + '<il><a onclick="' + action + '">' + item.label + '</a></il>'
-                        /* for a menu item that has an explicit submenu instead of an action */
-                        } else if (item.subMenu !== undefined ) {
-                            let label = item.label + ' →'
-                            html = html + '<il><a>' + label + '</a><ul>'
-                            /* recurse into the submenu */
-                            addMenuItem(item.subMenu)
-                            html = html + '</ul></il>'
-                        /* for a menu item that has a submenu constructor function instead of an action or an explicit submenu */
-                        } else if (item.submenuConstructorFunction !== undefined) {
-                            let label = item.label + ' →'
-                            html = html + '<il><a>' + label + '</a><ul>'
-                            let subMenu = await systemActionSwitch.executeAction(item.submenuConstructorFunction)
-                            addMenuItem(subMenu)
-                            html = html + '</ul></il>'
-                        }
+                        html = html + '<li><a onclick="' + action + '" ' + addDataAttribute(item.translationKey) + '>' + item.label + '</a></li>'
+                    /* for a menu item that has an explicit submenu instead of an action */
+                    } else if (item.subMenu !== undefined ) {
+                        let label = item.label + ' →'
+                        html = html + '<li><a ' + addDataAttribute(item.translationKey) + '>' + label + '</a><ul>'
+                        /* recurse into the submenu */
+                        addMenuItem(item.subMenu)
+                        html = html + '</ul></li>'
+                    /* for a menu item that has a submenu constructor function instead of an action or an explicit submenu */
+                    } else if (item.submenuConstructorFunction !== undefined) {
+                        let label = item.label + ' →'
+                        html = html + '<li><a ' + addDataAttribute(item.translationKey) + '>' + label + '</a><ul>'
+                        let subMenu = await systemActionSwitch.executeAction(item.submenuConstructorFunction)
+                        addMenuItem(subMenu)
+                        html = html + '</ul></li>'
+                    /* for a label-only item */
+                    } else if (
+                        item.label !== undefined &&
+                        item.action === undefined && item.subMenu === undefined && item.submenuConstructorFunction === undefined
+                        ) {
+                        html = html + '<li class="label" ' + addDataAttribute(item.translationKey) + '>' + item.label + '</li>'
                     }
                 }
             }
         }
-        topMenu.innerHTML = html
     }
 
     async function saveWorkspace(callBackFunction) {
@@ -297,13 +341,12 @@ function newWorkspace() {
                 , 150, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
             return
         }
-
-        let url = 'SaveWorkspace/' + workspace.name
+        let url = 'SaveWorkspace/' + buildWorkspacePathName(workspace)
         if (textToSave.indexOf('null,null,null,null,null,null,null,null,null') >= 0) {
-            console.log('[WARN] The system tried to save an empty workspace. Saving cancelled.')
+            console.log((new Date()).toISOString(), '[WARN] The system tried to save an empty workspace. Saving cancelled.')
             return
         }
-        httpRequest(textToSave, url, onResponse)
+        httpCompressedRequest(textToSave, url, onResponse)
         savePlugins()
         return true
 
@@ -323,8 +366,26 @@ function newWorkspace() {
         }
     }
 
+    function buildWorkspacePathName(workspace) {
+        let path = ''
+        if (workspace.config !== undefined) {
+            let config = JSON.parse(workspace.config)
+            if(config.location !== undefined && config.location.length > 0) {
+                let location = config.location
+                if(location.indexOf('/') === 0) {
+                    location = location.substring(1)
+                }
+                path = path + location
+            }
+        }
+        if(path.length > 0 && path[path.length-1] != '/') {
+            path = path + '/'
+        }
+        return path + workspace.name
+    }
+
     function setLastUsedWorkspace() {
-        window.localStorage.setItem('Last Used Workspace', UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.name)
+        window.localStorage.setItem('Last Used Workspace', buildWorkspacePathName(UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode))
         window.localStorage.setItem('Session Timestamp', sessionTimestamp)
     }
 
@@ -425,7 +486,7 @@ function newWorkspace() {
                     workingAtTask = 0
 
                     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
-                    UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.close()
+                    // UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.codeEditorSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.floatingSpace.inMapMode = true
                     workingAtTask = 2
@@ -439,13 +500,13 @@ function newWorkspace() {
 
                         async function takeAction() {
                             thisObject.isInitialized = false
-                            UI.projects.education.spaces.tutorialSpace.stop()
+                            UI.projects.education.spaces.tutorialSpace.stop(true)
 
                             let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Visual-Scripting', callBackFunction: onDeleted })
                             if (result === false) {
-                                console.log('[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
-                                console.log('[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
-                                console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reload the previously saved workspace again.')
+                                console.log((new Date()).toISOString(), '[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
+                                console.log((new Date()).toISOString(), '[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
+                                console.log((new Date()).toISOString(), '[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reload the previously saved workspace again.')
                                 workingAtTask = 0
                                 return
                             }
@@ -491,6 +552,8 @@ function newWorkspace() {
                             thisObject.workspaceNode = loadedWorkspaceNode
                             thisObject.workspaceNode.project = 'Foundations'
                             loadedWorkspaceNode = undefined
+                            thisObject.undoStack = []
+                            thisObject.redoStack = []
                             /* rebuild the system menu for the new workspace, as present project heads might have changed */
                             buildSystemMenu()
                             workingAtTask = 6
@@ -531,6 +594,7 @@ function newWorkspace() {
                         thisObject.isInitialized = true
 
                         UI.projects.governance.spaces.reportsSpace.reset()
+                        UI.projects.contributions.spaces.contributionsSpace.reset()
                         UI.projects.governance.spaces.userProfileSpace.reset()
                         UI.projects.foundations.spaces.codeEditorSpace.reset()
                         await UI.projects.education.spaces.docsSpace.reset()
@@ -742,26 +806,30 @@ function newWorkspace() {
 
         let webCommand
         if (project !== "") {
-            name = name.replace('Plugin \u2192 ', '')
+            name = name.replace('Native \u2192 ', '')
             webCommand = 'LoadPlugin' + '/' + project + '/' + 'Workspaces' + '/' + name + '.json'
+            currentWorkspaceTitle = 'Native'
         } else {
             webCommand = 'LoadMyWorkspace' + '/' + name
+            currentWorkspaceTitle = 'User'
         }
-
+        
         httpRequest(undefined, webCommand, onFileReceived)
         function onFileReceived(err, text, response) {
             if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
                 return
             }
-
+            
             loadedWorkspaceNode = JSON.parse(text)
+            currentWorkspaceTitle = currentWorkspaceTitle + '/' + loadedWorkspaceNode.name
             UI.projects.foundations.spaces.cockpitSpace.toTop()
 
             UI.projects.foundations.spaces.floatingSpace.container.frame.position.x = browserCanvas.width / 2 - UI.projects.foundations.spaces.floatingSpace.container.frame.width / 2
             UI.projects.foundations.spaces.floatingSpace.container.frame.position.y = browserCanvas.height / 2 - UI.projects.foundations.spaces.floatingSpace.container.frame.height / 2
 
             workingAtTask = 1
+            setWorkspaceTitle()
         }
     }
 
@@ -795,7 +863,7 @@ function newWorkspace() {
             }
 
             thisObject.workspaceNode.rootNodes.push(droppedNode)
-            executeAction({ node: droppedNode, name: 'Create UI Object', project: 'Visual-Scripting', extraParameter: positionOffset })
+            executeAction({ isInternal: false, node: droppedNode, name: 'Create UI Object', project: 'Visual-Scripting', extraParameter: positionOffset })
             executeAction({ name: 'Connect Children to Reference Parents', project: 'Visual-Scripting' })
 
             // Recreate autocomplete models
@@ -824,10 +892,20 @@ function newWorkspace() {
 
         let nodeActionSwitch = nodeActionSwitchesByProject.get(action.project)
         if (nodeActionSwitch === undefined) {
-            console.log('[ERROR] Action Switch for project ' + action.project + ' could not be found.')
+            console.log((new Date()).toISOString(), '[ERROR] Action Switch for project ' + action.project + ' could not be found.')
             return
         }
         return nodeActionSwitch.executeAction(action)
 
     }
+
+    function setWorkspaceTitle() {
+        let workspaceTitle = document.getElementById('workspace-title')
+        workspaceTitle.innerHTML = currentWorkspaceTitle
+
+        translate();
+        console.log('setting workspace title')
+    }
 }
+
+exports.newWorkspace = newWorkspace

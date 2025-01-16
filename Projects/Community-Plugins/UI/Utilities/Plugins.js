@@ -25,11 +25,16 @@ function newPluginsUtilitiesPlugins() {
     }
 
     function addMissingPluginFiles(node, fileNames, pluginFolder, nodeType, project) {
+        let newUiObjects = []
         for (let i = 0; i < fileNames.length; i++) {
             let fileName = fileNames[i]
             fileName = fileName.replace('.json', '')
-            addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, false)
+            let child = addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, false)
+            if (child !== undefined && child.payload.parentNode === node) {
+                newUiObjects.push(child)
+            }
         }
+        return newUiObjects
     }
 
     function addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, saveWithWorkspace) {
@@ -97,6 +102,9 @@ function newPluginsUtilitiesPlugins() {
             case 'User Profile': {
                 return 'User-Profiles'
             }
+            case 'P2P Network': {
+                return 'P2P-Networks'
+            }
         }
     }
 
@@ -149,7 +157,7 @@ function newPluginsUtilitiesPlugins() {
             undefined,
             4)
 
-        httpRequest(fileContent, 'SavePlugin' + '/' + project + '/' + folderName + '/' + fileName, onResponse)
+        httpCompressedRequest(fileContent, 'SavePlugin' + '/' + project + '/' + folderName + '/' + fileName, onResponse)
 
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
@@ -159,8 +167,10 @@ function newPluginsUtilitiesPlugins() {
                 pluginToSave.payload.uiObject.setInfoMessage('Plugin Saved.', 5)
                 return
             }
-            console.log('[ERROR] Saving Plugin File: ' + JSON.stringify(data))
+            console.log((new Date()).toISOString(), '[ERROR] Saving Plugin File: ' + JSON.stringify(data))
             pluginFile.payload.uiObject.setErrorMessage('This Plugin Could not be Saved. ' + JSON.stringify(data), 500)
         }
     }
 }
+
+exports.newPluginsUtilitiesPlugins = newPluginsUtilitiesPlugins

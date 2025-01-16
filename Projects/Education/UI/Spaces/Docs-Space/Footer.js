@@ -21,34 +21,6 @@ function newFoundationsDocsFooter() {
 
         HTML = HTML + '<div id="docs-footer" class="docs-node-html-footer-container">' // Container Starts
 
-        // Buttons Section
-
-        HTML = HTML + '<div class="docs-node-html-footer-table">'
-        HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
-
-        if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.sharePage()"><button>SHARE</button></span>'
-        }
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.scrollToElement(\'docs-space-div\')"><button>TO TOP</button></span>'
-        if (UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered !== undefined) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered.project + '\', \'' + UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered.category + '\', \'' + UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered.type + '\')"><button>BACK</button></span>'
-        }
-        if (UI.projects.education.spaces.docsSpace.currentBookBeingRendered !== undefined) {
-            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.project + '\', \'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.category + '\', \'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.type + '\')"><button>TO BOOK</button></span>'
-        }
-
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'Reviews' + '\')"><button>REVIEWS</button></span>'
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'Community Data Mines' + '\')"><button>DATA MINES</button></span>'
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'First Steps Tutorials' + '\')"><button>TUTORIALS</button></span>'
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'User Manual' + '\')"><button>USER MANUAL</button></span>'
-
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '</div>'
-        HTML = HTML + '</div>'
-
         // Language Section
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
@@ -69,85 +41,23 @@ function newFoundationsDocsFooter() {
         HTML = HTML + 'We produce the original Docs in English and you get the content in your preferred language only when translations are available. When not, you get the default content, in English.'
         HTML = HTML + '</div>'
 
-        let languageCode = UI.projects.education.spaces.docsSpace.language
+        if(GLOBAL.LANGUAGES !== undefined && GLOBAL.LANGUAGES.length > 0) {
+            let languageCode = UI.projects.education.spaces.docsSpace.language
+            HTML = HTML + '<div class="docs-footer-cell">'
 
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>Choose Your Language</h4>'
-        HTML = HTML + 'Click on your preferred language:<br/>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'EN\')"><img src="Images/Languages/EN.png" title="English" class="docs-footer-language'
-        if (languageCode === 'EN') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'ES\')"><img src="Images/Languages/ES.png" title="Spanish" class="docs-footer-language'
-        if (languageCode === 'ES') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'RU\')"><img src="Images/Languages/RU.png" title="Russian" class="docs-footer-language'
-        if (languageCode === 'RU') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'IT\')"><img src="Images/Languages/IT.png" title="Italian" class="docs-footer-language'
-        if (languageCode === 'IT') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'DE\')"><img src="Images/Languages/DE.png" title="German" class="docs-footer-language'
-        if (languageCode === 'DE') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'FR\')"><img src="Images/Languages/FR.png" title="French" class="docs-footer-language'
-        if (languageCode === 'FR') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'CN\')"><img src="Images/Languages/CN.png" title="Simplified Chinese-Mandarin" class="docs-footer-language'
-        if (languageCode === 'CN') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'ID\')"><img src="Images/Languages/ID.png" title="Bahasa" class="docs-footer-language'
-        if (languageCode === 'ID') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'TR\')"><img src="Images/Languages/TR.png" title="Turkish" class="docs-footer-language'
-        if (languageCode === 'TR') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'NL\')"><img src="Images/Languages/NL.png" title="Dutch" class="docs-footer-language'
-        if (languageCode === 'NL') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'AR\')"><img src="Images/Languages/AR.png" title="Arabic" class="docs-footer-language'
-        if (languageCode === 'AR') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'EL\')"><img src="Images/Languages/EL.png" title="Greek" class="docs-footer-language'
-        if (languageCode === 'EL') { 
-            HTML = HTML + '-selected'
-        } 
-        HTML = HTML + '"></a>'
-
-        HTML = HTML + '</div>'
+            HTML = HTML + '<h4>Choose Your Language</h4>'
+            HTML = HTML + 'Click on your preferred language:<br/>'
+            
+            for(let i = 0; i < GLOBAL.LANGUAGES.length; i++) {
+                let lang = GLOBAL.LANGUAGES[i]
+                HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'' + lang.code + '\')"><img src="Images/Languages/' + lang.code + '.png" title="' + lang.title + '" class="docs-footer-language'
+                if (languageCode === lang.code) { 
+                    HTML = HTML + '-selected'
+                } 
+                HTML = HTML + '"></a>'
+            }
+            HTML = HTML + '</div>'
+        }
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Contribute Translations</h4>'
@@ -244,6 +154,7 @@ function newFoundationsDocsFooter() {
         HTML = HTML + '<li><a href="https://t.me/superalgos_es" target="_blank">Spanish</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgos_ru" target="_blank">Russian</a></li>'
         HTML = HTML + '<li><a href="https://t.me/tr_superalgos" target="_blank">Turkish</a></li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgos_de" target="_blank">German</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '<h4>Other Resources</h4>'
         HTML = HTML + '<ul>'

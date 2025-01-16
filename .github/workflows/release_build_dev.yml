@@ -8,6 +8,7 @@ on:
 
 jobs:
   create-release:
+    if: github.repository == 'superalgos/superalgos'
     runs-on: ubuntu-latest
     steps:
       - name: Download a file
@@ -33,6 +34,7 @@ jobs:
           keep_tags: false
 
   build-release:
+    if: github.repository == 'superalgos/superalgos'
     runs-on: ${{ matrix.os }}
     needs: create-release
     strategy:
@@ -52,7 +54,7 @@ jobs:
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 18
 
       - name: Get version
         id: vars

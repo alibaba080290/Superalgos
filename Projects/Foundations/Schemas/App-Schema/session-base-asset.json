@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "uiObject.configEditor.activate"
@@ -13,7 +14,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -21,7 +24,7 @@
     ],
     "isTitleAllwaysVisible": true,
     "initialValues": {
-        "config": "{\n\"initialBalance\": 1,\n\"minimumBalance\": 0.5\n}"
+        "config": "{\n\"initialBalance\": 0\n}"
     },
     "addLeftIcons": true,
     "editors": {

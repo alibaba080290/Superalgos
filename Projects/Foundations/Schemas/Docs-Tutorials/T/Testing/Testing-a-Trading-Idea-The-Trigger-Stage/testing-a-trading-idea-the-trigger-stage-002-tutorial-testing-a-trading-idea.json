@@ -15,9 +15,19 @@
                 "updated": 1639254306995
             },
             {
+                "language": "RU",
+                "text": "Мы добрались до того момента, когда наконец-то можем применить теорию на практике, так что давайте приступим к делу!",
+                "updated": 1640933119920
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Sonunda teoriyi pratiğe dökebileceğimiz noktaya geldik, hadi başlayalım!",
                 "updated": 1641062082892
+            },
+            {
+                "language": "ES",
+                "text": "Hemos llegado al punto en el que por fin podemos poner en práctica la teoría, así que ¡manos a la obra!",
+                "updated": 1675620977013
             }
         ]
     },
@@ -32,9 +42,19 @@
                     "updated": 1639254318951
                 },
                 {
+                    "language": "RU",
+                    "text": "Во втором уроке из этой серии мы рассказали о том, как правильно определить торговую идею, чтобы ее можно было проверить. Мы также отправились на экскурсию и вернулись с правильной формализованной гипотезой для проверки.",
+                    "updated": 1640933147749
+                },
+                {
                     "language": "TR",
                     "text": "Serinin ikinci eğitiminde, bir ticaret fikrinin test edilebilir olması için nasıl düzgün bir şekilde tanımlanacağını ele aldık. Ayrıca bir saha gezisine çıktık ve test etmek için uygun bir resmi teoriyle geri döndük.",
                     "updated": 1641062181384
+                },
+                {
+                    "language": "ES",
+                    "text": "En el segundo tutorial de la serie explicamos cómo definir correctamente una idea de trading para que se pueda probar. También nos fuimos de excursión y volvimos con una hipótesis formalizada para ponerla a prueba.",
+                    "updated": 1675621126413
                 }
             ]
         },
@@ -48,9 +68,19 @@
                     "updated": 1639254330335
                 },
                 {
+                    "language": "RU",
+                    "text": "В этом учебнике мы проверим гипотезу!",
+                    "updated": 1640933179436
+                },
+                {
                     "language": "TR",
                     "text": "Bu eğitimde varsayımı test edeceğiz!",
                     "updated": 1641062215027
+                },
+                {
+                    "language": "ES",
+                    "text": "En este tutorial, ¡pondremos a prueba la hipótesis!",
+                    "updated": 1675621133774
                 }
             ]
         },
@@ -64,9 +94,19 @@
                     "updated": 1639254337943
                 },
                 {
+                    "language": "RU",
+                    "text": "Я настоятельно рекомендую вам прочесть первый и второй учебники из этой серии, прежде чем браться за этот! История переносится из одного в другой!",
+                    "updated": 1640933201552
+                },
+                {
                     "language": "TR",
                     "text": "Not: Bunu yapmadan önce serideki birinci ve ikinci dersleri uygulamanızı şiddetle tavsiye ederim! Bütün hikaye birbiriyle ilişkilidir.",
                     "updated": 1641062291040
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Te recomiendo encarecidamente que hagas el primer y el segundo tutorial de la serie antes de hacer éste! La historia se desarrolla de uno a otro.",
+                    "updated": 1675621153384
                 }
             ]
         }

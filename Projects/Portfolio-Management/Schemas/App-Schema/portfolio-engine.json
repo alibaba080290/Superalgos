@@ -4,6 +4,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
+            "translationKey": "add.missing.children",
             "relatedUiObject": "Portfolio Engine",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -14,7 +15,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -29,14 +32,21 @@
             "type": "node",
             "childType": "Portfolio Current",
             "autoAdd": false,
-            "project": "Foundations"
+            "project": "Portfolio-Management"
         },
         {
             "name": "portfolioLast",
             "type": "node",
             "childType": "Portfolio Last",
             "autoAdd": false,
-            "project": "Foundations"
+            "project": "Portfolio-Management"
+        },
+        {
+            "name": "managedTradingBots",
+            "type": "node",
+            "childType": "Managed Trading Bots",
+            "project": "Portfolio-Management",
+            "autoAdd": true
         }
     ]
 }
